@@ -4,6 +4,7 @@ class Stencil {
 
 	protected $CI;
 	protected $title  	= '';
+	protected $layout  	= '';
 	protected $data		= array();
 	protected $meta 	= array();
 	protected $css    	= array();
@@ -35,32 +36,32 @@ class Stencil {
 
 	public function layout($layout)
 	{
-		return $this->layout = $layout;
+		$this->layout = $layout;
 	}
 
 	public function css($css)
 	{
-		return $this->css = array_merge($this->css, (array)$css);
+		$this->css = array_merge($this->css, (array)$css);
 	}
 
 	public function js($js)
 	{
-		return $this->js = array_merge($this->js, (array)$js);
+		$this->js = array_merge($this->js, (array)$js);
 	}
 
 	public function meta($meta)
 	{
-		return $this->meta = array_merge($this->meta, (array)$meta);
+		$this->meta = array_merge($this->meta, (array)$meta);
 	}
 
 	public function title($title)
 	{
-		return $this->title = $title;
+		$this->title = $title;
 	}
 
 	public function slice($slice)
 	{
-		return $this->slice = array_merge($this->slice, (array)$slice);
+		$this->slice = array_merge($this->slice, (array)$slice);
 	}
 }
 
