@@ -5,7 +5,7 @@ class Pages extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->stencil->layout('home_layout');
+		$this->stencil->layout('subpage_layout');
 		$this->stencil->slice('head');
 	}
 
@@ -15,7 +15,7 @@ class Pages extends CI_Controller {
 		{
 			case 'static-example' :
 				$this->stencil->title('Static Page Example');
-				$this->stencil->paint('static_example_view');
+				$this->stencil->paint('static_page_view');
 				break;
 		
 			case 'license' :
