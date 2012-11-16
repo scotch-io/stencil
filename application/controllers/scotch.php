@@ -10,12 +10,15 @@ class Scotch extends CI_Controller {
 	public function index()
 	{
 		$this->stencil->title('Stencil by Scotch.io');
+		$this->stencil->slice('head');
 		$this->stencil->layout('home_layout');
-
-	
 		$this->stencil->paint('home_view');
 	}
-
+	
+	public function example()
+	{
+		echo 'example'; 
+	}
 }
 
 /* End of file scotch.php */

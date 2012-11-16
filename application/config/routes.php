@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = 'scotch';
-$route['404_override'] = '';
+$route['404_override'] = 'routes';
 
 
 /* End of file routes.php */

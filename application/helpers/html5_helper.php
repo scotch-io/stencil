@@ -110,7 +110,7 @@ if (!function_exists('chrome_frame'))
 {
 	function chrome_frame()
 	{
-		return '<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><!-- Force IE to use the latest rendering engine -->'."\n";
+		return '<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]--><!-- Force IE to use the latest rendering engine -->'."\n";
 	}
 }
 
@@ -135,13 +135,53 @@ if (!function_exists('apple_mobile'))
 	}
 }
 
+if (!function_exists('windows_tile'))
+{
+	function windows_tile($meta = array())
+	{
+		if (is_null($meta))
+		{	
+			return FALSE;
+		}
+
+		$tile = array();
+		if (array_key_exists('name', $meta))
+			$tile[] = '<meta name="application-name" content="'.$meta['name'].'"><!-- Windows 8 Tile Name -->';
+		if (array_key_exists('image', $meta))
+			$tile[] = '<meta name="msapplication-TileImage" content="'.$meta['image'].'"><!-- Windows 8 Tile Image -->';
+		if (array_key_exists('color', $meta))
+			$tile[] = '<meta name="msapplication-TileColor" content="'.$meta['color'].'"><!-- Windows 8 Tile Color -->';
+		
+		$i = 0;
+		$tab = "\t";
+		$result = array();
+		foreach ($tile as $item) {
+			if ($i == count($tile) - 1)
+			{
+				$tab = '';
+			}
+			$result[] = $item."\n".$tab;
+		$i++;
+		}
+		
+		return implode('', $result);
+	}
+}
+
 if (!function_exists('favicons'))
 {
 	function favicons($icons = NULL)
 	{
 		if ($icons == NULL)
 		{
-		return '<link rel="shortcut icon" type="image/png" href="'.base_url('assets/img/icons/favicon-16.png').'"><!-- default favicon -->'."\n\t".'<link rel="apple-touch-icon" sizes="57x57" href="'.base_url('assets/img/icons/favicon-57.png').'"><!-- iPhone low-res and Android -->'."\n\t".'<link rel="apple-touch-icon-precomposed" sizes="57x57" href="'.base_url('assets/img/icons/favicon-57.png').'"><!-- Legacy Android -->'."\n\t".'<link rel="apple-touch-icon" sizes="72x72" href="'.base_url('assets/img/icons/favicon-72.png').'"><!-- iPad -->'."\n\t".'<link rel="apple-touch-icon" sizes="114x114" href="'.base_url('assets/img/icons/favicon-114.png').'"><!-- iPhone 4 -->'."\n\t".'<link rel="apple-touch-icon" sizes="144x144" href="'.base_url('assets/img/icons/favicon-144.png').'"><!-- iPad hi-res -->'."\n";
+			
+			return '<link rel="icon" href="'.base_url('assets/img/icons/favicon-32.png').'" type="image/png"'.'><!-- default favicon -->'."\n\t".
+			'<link rel="shortcut icon" href="'.base_url('favicon.ico').'"><!-- legacy default favicon (in root, 32x32) -->'."\n\t".
+			'<link rel="apple-touch-icon" sizes="57x57" href="'.base_url('assets/img/icons/favicon-57.png').'"><!-- iPhone low-res and Android -->'."\n\t".
+			'<link rel="apple-touch-icon-precomposed" sizes="57x57" href="'.base_url('assets/img/icons/favicon-57.png').'"><!-- legacy Android -->'."\n\t".
+			'<link rel="apple-touch-icon" sizes="72x72" href="'.base_url('assets/img/icons/favicon-72.png').'"><!-- iPad -->'."\n\t".
+			'<link rel="apple-touch-icon" sizes="114x114" href="'.base_url('assets/img/icons/favicon-114.png').'"><!-- iPhone 4 -->'."\n\t".
+			'<link rel="apple-touch-icon" sizes="144x144" href="'.base_url('assets/img/icons/favicon-144.png').'"><!-- iPad hi-res -->'."\n";
 		}
 		
 		if (!is_array($icons)) 
@@ -163,9 +203,15 @@ if (!function_exists('favicons'))
 				case '16':
 					$items[] = '<link rel="shortcut icon" type="image/png" href="'.base_url($src).'"><!-- default favicon -->'."\n".$tab;
 					break;
+				case '32':
+					$items[] = '<link rel="shortcut icon" type="image/png" href="'.base_url($src).'"><!-- default favicon -->'."\n".$tab;
+					break;
 				case '57':
 					$items[] = '<link rel="apple-touch-icon" sizes="57x57" href="'.base_url($src).'"><!-- iPhone low-res and Android -->'."\n".$tab;
 					$items[] = '<link rel="apple-touch-icon-precomposed" sizes="57x57" href="'.base_url($src).'"><!-- Legacy Android -->'."\n".$tab;
+					break;
+				case '64':
+					$items[] = '<link rel="shortcut icon" type="image/png" href="'.base_url($src).'"><!-- default favicon -->'."\n".$tab;
 					break;
 				case '72':
 					$items[] = '<link rel="apple-touch-icon" sizes="72x72" href="'.base_url($src).'"><!-- iPad -->'."\n".$tab;
@@ -177,7 +223,7 @@ if (!function_exists('favicons'))
 					$items[] = '<link rel="apple-touch-icon" sizes="144x144" href="'.base_url($src).'"><!-- iPad hi-res -->'."\n".$tab;
 					break;
 				default:
-					$items[] = '<!--Sorry! This helper does not support the size: '.$size.'. You can add it yourself here: /applications/helpers/html5_helper -->'."\n".$tab;
+					$items[] = '<!-- Sorry! This helper does not support the size: '.$size.'. -->'."\n".$tab;
 					break;
 			}
 			$i++;
@@ -199,19 +245,6 @@ if (!function_exists('jquery'))
 		{
 			return '<script src="//ajax.googleapis.com/ajax/libs/jquery/'.$version.'/jquery.min.js"></script>'."\n";
 		}
-	}
-}
-
-if (!function_exists('image'))
-{
-	function image($src = NULL, $alt = NULL)
-	{
-		if (is_null($src)) 
-		{
-			return FALSE;
-		}
-
-		return '<img src="'.base_url($src).'" alt="'.$alt.'">'."\n";
 	}
 }
 
