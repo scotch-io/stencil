@@ -1,23 +1,22 @@
 	
-	<!-- Meta -->
+	<!-- robot speak -->	
 	<meta charset="utf-8">
-	<title><?php if (!empty($title)) echo $title.' | Stencil by Scotch'; ?></title>
-	<?php echo view_port(); ?>
+	<title><?php if (isset($title)) echo $title.' | '; ?> Stencily by Scotch.io</title>
 	<?php echo chrome_frame(); ?>
+	<?php echo view_port(); ?>
 	<?php echo apple_mobile('black-translucent'); ?>
 	<?php echo $meta; ?>
-
-	<!-- Icons -->
+	
+	<!-- icons and icons and icons and icons and icons and a tile -->
 	<?php echo windows_tile(array('name' => 'Stencil by Scotch.io', 'image' => base_url().'/assets/img/icons/tile.png', 'color' => 'black')); ?>
 	<?php echo favicons(); ?>
 
-	<!-- CSS -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/reset.css'); ?>">
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
+	<!-- crayons and paint -->	
+	<?php echo add_css(array('reset', 'style')); ?>
 	<?php echo $css; ?>
-
-	<!-- JS -->
+	
+	<!-- magical wizardry -->
 	<?php echo jquery('1.8.2'); ?>
 	<?php echo shiv(); ?>
-	<script src="<?php echo base_url('assets/js/scripts.js'); ?>"></script>
+	<?php echo add_js('scripts'); ?>
 	<?php echo $js; ?>

@@ -1,1 +1,1 @@
-This is home
+This is the home view

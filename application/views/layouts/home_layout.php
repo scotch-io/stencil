@@ -4,18 +4,12 @@
 	<?php echo $head; ?>
 </head>
 <body class="home">
+	
+	<h1>Welcome to Stencil by Scotch.io</h1>
 
-		<header>
-			<h1>Welcome to Stencil by Scotch.io</h1>
-		</header>
-
-		<section id="content">
-			<?php echo $content; ?>
-		</section>
-		
-		<footer>
-		
-		</footer>
+	<section class="content" id="home">
+		<?php echo $content; ?>
+	</section>
 		
 </body>
 </html>

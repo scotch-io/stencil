@@ -1,0 +1,1 @@
+This is sidebar 2 and this is "<?php echo $somevar; ?>".

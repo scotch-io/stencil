@@ -1,3 +1,3 @@
-This is my 404 page!
+<h2>404!</h2>
 
-Page not found
+<p>Page Not Found</p>
