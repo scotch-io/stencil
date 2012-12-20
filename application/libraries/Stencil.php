@@ -26,9 +26,25 @@ class Stencil {
 		if (!is_null($data))
 			foreach ($data as $key => $value)
 				$this->data[$key] = $value;
-
-		foreach ($this->slice as $slice)
-			$this->data[$slice] = $this->CI->load->view('slices/'.$slice, $this->data, TRUE)."\n";
+				
+		foreach ($this->slice as $key => $value)
+		{
+			if (is_array($value))
+			{
+				foreach ($value as $k => $v)
+				{
+					$this->data[$k] = $this->CI->load->view('slices/'.$v, $this->data, TRUE)."\n";
+				}
+			}
+			elseif (!is_numeric($key))
+			{
+				$this->data[$key] = $this->CI->load->view('slices/'.$value, $this->data, TRUE)."\n";
+			}
+			else
+			{
+				$this->data[$value] = $this->CI->load->view('slices/'.$value, $this->data, TRUE)."\n";
+			}
+		}
 		
 		$this->data['content'] = $this->CI->load->view('pages/'.$page, $this->data, TRUE)."\n";
 		$this->CI->load->view('layouts/'.$this->layout, $this->data);

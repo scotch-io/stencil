@@ -276,5 +276,34 @@ if (!function_exists('svg'))
 	}
 }
 
+if (!function_exists('image'))
+{
+	function image($src = NULL, $alt = NULL, $attr = NULL)
+	{
+		if (is_null($src)) 
+		{
+			return FALSE;
+		}
+		
+		$extras = array();
+		if (!is_null($attr))
+		{
+			foreach ($attr as $key => $value)
+			{
+				$extras[] = $key.'="'.$value.'"';
+			}
+		}
+		
+		$attributes = implode(' ', $extras);
+		
+		if (!empty($attributes))
+		{
+			$attributes = ' '.$attributes;
+		}
+		
+		return '<img src="'.base_url('assets/img/'.$src).'" alt="'.$alt.'"'.$attributes.'>';
+	}
+}
+
 /* End of file html5_helper.php */
 /* Location: ./application/helpers/html5_helper.php */ 
