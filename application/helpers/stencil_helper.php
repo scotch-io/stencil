@@ -248,60 +248,16 @@ if (!function_exists('jquery'))
 	}
 }
 
-if (!function_exists('svg'))
+if (!function_exists('asset_url'))
 {
-	function svg($svg = NULL)
-	{
-		if (is_null($svg)) 
-		{
-			return FALSE;
-		}
-
-		$CI =& get_instance();
-		if (!is_array($svg))
-		{
-			$file_type = (preg_match('/\.svg$/i', $svg) ? NULL : '.svg');
-			return $CI->load->view('slices/svg/'.$svg.$file_type, '', TRUE)."\n";
-		}
-		else
-		{
-			$icons = array();
-			foreach ($svg as $item)
-			{
-				$file_type = (preg_match('/\.svg$/i', $item) ? NULL : '.svg');
-				$icons[$item] = $CI->load->view('slices/svg/'.$item.$file_type, '', TRUE)."\n";
-			}
-			return $icons;
-		}
-	}
-}
-
-if (!function_exists('image'))
-{
-	function image($src = NULL, $alt = NULL, $attr = NULL)
+	function asset_url($src = NULL)
 	{
 		if (is_null($src)) 
 		{
-			return FALSE;
+			return base_url().'assets/';
 		}
 		
-		$extras = array();
-		if (!is_null($attr))
-		{
-			foreach ($attr as $key => $value)
-			{
-				$extras[] = $key.'="'.$value.'"';
-			}
-		}
-		
-		$attributes = implode(' ', $extras);
-		
-		if (!empty($attributes))
-		{
-			$attributes = ' '.$attributes;
-		}
-		
-		return '<img src="'.base_url('assets/img/'.$src).'" alt="'.$alt.'"'.$attributes.'>';
+		return base_url().'assets/'.$src;
 	}
 }
 

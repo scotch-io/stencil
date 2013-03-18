@@ -1,1 +1,0 @@
-This is sidebar 1

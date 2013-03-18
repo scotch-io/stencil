@@ -9,6 +9,8 @@
 
 	<section class="content" id="home">
 		<?php echo $content; ?>
+
+
 	</section>
 		
 </body>
