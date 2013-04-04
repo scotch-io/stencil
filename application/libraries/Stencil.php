@@ -3,13 +3,14 @@
 class Stencil {
 
 	protected $CI;
-	protected $title  	= '';
-	protected $layout  	= '';
-	protected $data		= array();
-	protected $meta 	= array();
-	protected $css    	= array();
-	protected $js     	= array();
-	protected $slice	= array();
+	protected $title  		= '';
+	protected $layout  		= '';
+	protected $body_class 	= '';
+	protected $data			= array();
+	protected $meta 		= array();
+	protected $css    		= array();
+	protected $js     		= array();
+	protected $slice		= array();
 
 	public function __construct()
 	{
@@ -18,10 +19,11 @@ class Stencil {
 
 	public function paint($page, $data = NULL)
 	{
-		$this->data['css']   = add_css($this->css);
-		$this->data['meta']  = add_meta($this->meta);
-		$this->data['js']    = add_js($this->js);
-		$this->data['title'] = $this->title;
+		$this->data['css']   		= add_css($this->css);
+		$this->data['meta']  		= add_meta($this->meta);
+		$this->data['js']    		= add_js($this->js);
+		$this->data['title'] 		= $this->title;
+		$this->data['body_class'] 	= $this->CI->router->fetch_class();
 
 		if (!is_null($data))
 			foreach ($data as $key => $value)

@@ -1,3 +1,3 @@
-<h2>404!</h2>
+<h1><?php echo $subpage_text; ?></h1>
 
 <p>Page Not Found</p>
