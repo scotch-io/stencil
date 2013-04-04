@@ -9,6 +9,8 @@ It's simple and awesome template system for Codeigniter. Stencil is the perfect 
 
 ### [View the Official Docs](http://scotch.io/development/stencil)
 
+Contact: nick@scotch.io or chris@scotch.io
+
 ## Features
 
 ##### Layouts
