@@ -167,7 +167,7 @@ class Home extends CI_Controller {
     <script src="http://scotch.io/assets/js/bootstrap.min.js"></script>
     <script src="http://scotch.io/assets/js/scripts.js"></script>
     <script src="http://scotch.io/assets/js/some-plugin.js"></script>
-    <script src="http://scotch.io/assets/js/slider.js"></script>
+    <script src="http://scotch.io/assets/js/home-slider.js"></script>
 </head>
 <!-- $body_class will always be the class name -->
 <body class="home">
