@@ -132,6 +132,7 @@ class Home extends CI_Controller {
 ```
 
 ### Result
+
 ```php
 <!doctype html>
 <html>
