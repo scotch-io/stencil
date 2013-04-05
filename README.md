@@ -21,7 +21,7 @@ nick@scotch.io or chris@scotch.io
 `Nested Views`
 `Elements`
 `Includes`
-##### HTML5 Helpers
+##### HTML5 Helpers 
 `add_css()`
 `add_js()`
 `add_meta()`
