@@ -189,7 +189,7 @@ class Home extends CI_Controller {
     </footer>
  
 </body>
-</html>
+</html>  
 ```
 
 ## License 

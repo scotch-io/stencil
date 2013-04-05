@@ -124,5 +124,5 @@ class Stencil {
 	}
 }
 
-/* End of file Stencil.php */ 
+/* End of file Stencil.php */
 /* Location: ./application/libararies/Stencil.php */
