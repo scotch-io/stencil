@@ -1,6 +1,6 @@
 ![Stencil Logo](http://scotch.io/assets/img/stencil-banner.png "Stencil Logo")
 
-Stencil
+Stencil :pencil2:
 =========================== 
 
 Stencil is a Codeigniter template engine for generating HTML pages in a simple yet very robust and powerful way.
