@@ -35,12 +35,25 @@
 
 class Slices {
 
+	/**
+	 * CodeIgniter Super Global Object
+	 *
+	 * @var object
+	 */
 	protected $CI;
 
+	/**
+	 * Class Construct
+	 *
+	 * Set the CodeIgniter super global object.
+	 *
+	 * @access public
+	 */
 	public function __construct()
 	{
 		$this->CI =& get_instance();
 	}
 }
+
 /* End of file Slices.php */
 /* Location: ./application/libararies/Slices.php */
