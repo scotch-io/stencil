@@ -7,7 +7,7 @@
 <head>
 	<?php echo $head; ?>
 </head>
-<body <?php echo $body_class; ?>>
+<body class="<?php echo $body_class; ?>">
 
 	<header>
 		<?php echo $header; ?>
