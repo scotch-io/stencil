@@ -7,7 +7,7 @@ Stencil is a Codeigniter template engine for generating HTML pages in a simple y
 
 It's awesome template system for Codeigniter. Stencil is the perfect out-of-the-box solution for all your Codeigniter projects.
 
-### [View the Official Docs](http://scotch.io/development/stencil)
+### [View the Official Docs](http://scotch.io/docs/stencil)
 
 nick@scotch.io or chris@scotch.io
  
