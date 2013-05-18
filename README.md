@@ -1,4 +1,4 @@
-![Stencil Logo](http://scotch.io/assets/img/stencil-banner.png "Stencil Logo")
+![Stencil Logo](http://scotch.io/images/stencil-banner.png "Stencil Logo")
 
 Stencil :fire: :pencil2:
 =========================== 
