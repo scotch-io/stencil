@@ -1,15 +1,5 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-/*	Auto base_url()
-* Correctly set base_url() to automatically pull url
-* No need to set base_url() in config/config.php
-* Helps when moving code between dev and production environments
-----------------------------------------------------------------------*/
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'];
-$config['base_url'] .= preg_replace('@/+$@', '', dirname($_SERVER['SCRIPT_NAME'])).'/';
-
-
 /*	Countries Array
 *	$countries = $this->config->item('countries');
 ----------------------------------------------------------------------*/
