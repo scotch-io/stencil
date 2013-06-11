@@ -8,6 +8,7 @@ Stencil is a Codeigniter template engine for generating HTML pages in a simple y
 It's awesome template system for Codeigniter. Stencil is the perfect out-of-the-box solution for all your Codeigniter projects.
 
 ### [View the Official Docs](http://scotch.io/docs/stencil)
+### [Play with the Demo](http://stencil.scotch.io)
 
 nick@scotch.io or chris@scotch.io
  
@@ -45,6 +46,8 @@ nick@scotch.io or chris@scotch.io
 `$this->stencil->data(array('key' => 'value'))`
 
 ## Example Use
+
+![Stencil Default Layout](http://scotch.io/images/stencil-demo.png "Stencil Logo")
 
 ### Controller
 ```php
