@@ -9,19 +9,10 @@
 </head>
 <body class="<?php echo $body_class; ?>">
 
-	<header>
-		<?php echo $header; ?>
-	</header>
+	<?php echo $content; ?>
 
-	<div class="container">
-		<?php echo $content; ?>
-	</div>
 
-	<hr>
 
-	<footer class="container">
-		<p>&copy; scotch.io 2013</p>
-	</footer>
 
 </body>
 </html>
