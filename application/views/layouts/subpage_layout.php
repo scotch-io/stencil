@@ -13,8 +13,15 @@
 		<?php echo $header; ?>
 	</header>
 
-	<div class="container">
-		<?php echo $content; ?>
+	<div class="container" style="margin-top: 100px;">
+		<section class="row">
+			<div class="span8">
+				<?php echo $content; ?>
+			</div>
+			<div class="span4">
+				<?php echo $sidebar; ?>
+			</div>
+		</section>
 	</div>
 
 	<hr>
