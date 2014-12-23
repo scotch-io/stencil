@@ -15,16 +15,11 @@ class Stencil {
 	public function __construct()
 	{
 		$this->CI =& get_instance();
+                $this->data['content']          = '';
 	}
 
 	public function paint($page, $data = NULL)
 	{
-		$this->data['css']   		= add_css($this->css);
-		$this->data['meta']  		= add_meta($this->meta);
-		$this->data['js']    		= add_js($this->js);
-		$this->data['title'] 		= $this->title;
-		$this->data['body_class'] 	= $this->CI->router->fetch_class();
-
 		if (!is_null($data))
 			foreach ($data as $key => $value)
 				$this->data[$key] = $value;
@@ -74,38 +69,53 @@ class Stencil {
 				$this->data[$value] = $this->CI->load->view('slices/'.$value, $this->data, TRUE)."\n";
 			}
 		}
-		$this->data['content'] = $this->CI->load->view('pages/'.$page, $this->data, TRUE)."\n";
-		$this->CI->load->view('layouts/'.$this->layout, $this->data);
+                $this->data['content'] .= $this->CI->load->view($page, $this->data, TRUE)."\n";
+                return $this;
 	}
+
+        public function render(){
+		$this->data['css']   		= add_css($this->css);
+		$this->data['meta']  		= add_meta($this->meta);
+		$this->data['js']    		= add_js($this->js);
+		$this->data['title'] 		= $this->title;
+		$this->data['body_class'] 	= $this->CI->router->fetch_class();
+		$this->CI->load->view('layouts/'.$this->layout, $this->data);
+        }
 
 	public function layout($layout)
 	{
 		$this->layout = $layout;
+                return $this;
 	}
 
 	public function css($css)
 	{
 		$this->css = array_merge($this->css, (array)$css);
+                return $this;
 	}
 
 	public function js($js)
 	{
 		$this->js = array_merge($this->js, (array)$js);
+                return $this;
 	}
 
 	public function meta($meta)
 	{
 		$this->meta = array_merge($this->meta, (array)$meta);
+                return $this;
 	}
 
 	public function title($title)
 	{
 		$this->title = $title;
+                return $this;
 	}
 
 	public function slice($slice)
 	{
 		$this->slice = array_merge($this->slice, (array)$slice);
+                return $this;
 	}
 
 	public function data($key, $value = NULL)
@@ -121,6 +131,7 @@ class Stencil {
 				$this->data[$k] = $v;
 			}
 		}
+                return $this;
 	}
 }
 
