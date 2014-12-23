@@ -24,6 +24,11 @@ class Stencil {
 			foreach ($data as $key => $value)
 				$this->data[$key] = $value;
 
+                $this->data['content'] .= $this->CI->load->view($page, $this->data, TRUE)."\n";
+                return $this;
+	}
+
+        public function render(){
 		foreach ($this->slice as $key => $value)
 		{
 			if (is_array($value))
@@ -69,11 +74,6 @@ class Stencil {
 				$this->data[$value] = $this->CI->load->view('slices/'.$value, $this->data, TRUE)."\n";
 			}
 		}
-                $this->data['content'] .= $this->CI->load->view($page, $this->data, TRUE)."\n";
-                return $this;
-	}
-
-        public function render(){
 		$this->data['css']   		= add_css($this->css);
 		$this->data['meta']  		= add_meta($this->meta);
 		$this->data['js']    		= add_js($this->js);
