@@ -98,7 +98,7 @@ $this->stencil->title('Home Page')
                           'keywords' => 'stencil, example, fun stuff'
               ))
         ->paint('home_view', $data)
-        ->paint('more_home_view', $data);
+        ->paint('more_home_view', $data)
         ->render();
 ```
 
