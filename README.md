@@ -45,10 +45,6 @@ nick@scotch.io or chris@scotch.io
 `$this->stencil->data('key', 'value')`
 `$this->stencil->data(array('key' => 'value'))`
 
-## Example Use
-
-![Stencil Default Layout](http://scotch.io/images/stencil-demo.png "Stencil Logo")
-
 ### Controller
 ```php
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
@@ -79,11 +75,31 @@ class Home extends CI_Controller {
 
         $data['welcome_message'] = 'Welcome to my website using Stencil!';
         $this->stencil->paint('home_view', $data);
+        $this->stencil->paint('more_home_view', $data);
+        $this->stencil->render(); /// render at last
     }
 }
+
  
 /* End of file home.php */
 /* Location: ./application/controllers/home.php */
+```
+
+You can also use method chaining like
+```
+$data['welcome_message'] = 'Welcome to my website using Stencil!';
+$this->stencil->title('Home Page')
+              ->js('some-plugin')
+              ->js('home-slider')
+              ->css('home-slider')
+              ->meta(array(
+                          'author' => 'Nicholas Cerminara',
+                          'description' => 'This is the home page of my website!',
+                          'keywords' => 'stencil, example, fun stuff'
+              ))
+        ->paint('home_view', $data)
+        ->paint('more_home_view', $data)
+        ->render();
 ```
 
 ### Layout
